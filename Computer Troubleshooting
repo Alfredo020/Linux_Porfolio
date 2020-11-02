@@ -1,0 +1,79 @@
+answer1 = ("If the battery of your computer device has swollen or changed appearance, we recommend removing the battery from the computer immediately and bring it to the store for us technicians to look at.")
+answer2 = ("We recommend bringing the computer in to a nearby store to get help from a specialist.")
+answer3 = ("We recommend factory resetting the computer or updating the operating system to the latest version as the majority or errors are caused due to out-of-date versions.")
+answer4 = ("If the screen has been cracked, we recommend replacing the screen. If not, bring the broken screen into a store in order to seek help from a technician.")
+answer5 = ("If the computer has water inside, we recommend removing the battery and allowing each piece of the computer to dry separately. Alternatively take the computer to the store.")
+answer6 = ("We recommend taking the computer into a store, in order to seek help from a specialist.")
+
+import time
+
+boolean = 0
+
+issuesolved = False
+while issuesolved == False:
+    print("Hello, Welcome to computer customer support! may you please tell me who am i speaking to today?")
+    name = input()
+    print("hello" ,name, "Let's get this started.")
+    while boolean == 0:
+        problem1 = input("Is there something visibly wrong with the computer?")
+        if problem1 == "yes":
+          print("Please describe more in detail.")
+          boolean += 1
+        elif problem1 == "no":
+          print("The problem has nothing to do with visible damage")
+          boolean += 2
+    while boolean == 1:
+        issue1 = str(input("Please decribe what is wrong with your computer."))
+    
+        if ("battery" in issue1 or "swollen" in issue1):
+            print(answer1)
+            issuesolved = True
+        elif ("virus" in issue1
+            or "display" in issue1):
+          print(answer2)
+          issuesolved = True
+        elif("error" in issue1
+            or "message" in issue1):
+          print(answer3)
+          issuesolved = True
+        programfinished = input("Has the problem been found and a solution suggested?")
+        if programfinished == "yes":
+          system = False
+          time.sleep(3)
+          exit()
+        elif programfinished == "no":
+          boolean += 1
+    
+    while boolean == 2:
+        problem2 = input("Has the computer been exposed to damage?")
+        if problem2 == "yes":
+          print("Please describe in more detail.")
+          boolean += 1
+        elif problem2 == "no":
+          print("The problem has nothing to do with damage to the hardware")
+          boolean += 2
+          system = False
+          time.sleep(3)
+          exit()
+    
+    while boolean == 3:
+        issue2 = str(input("Please decribe what is wrong with your computer."))
+        if ("screen" in issue2
+          or "broken" in issue2):
+          print(answer4)
+          issuesolved = True
+        elif("water" in issue2
+            or "liquid" in issue2):
+          print(answer5)
+          issuesolved = True
+        elif("error" in issue2
+            or "message" in issue2):
+            print(answer6)
+            issuesolved = True
+        programfinished = input("Has the problem been found and a solution suggested?")
+        if programfinished == "yes":
+          system = False
+          time.sleep(3)
+          exit()
+        elif programfinished == "no":
+          boolean += 1
